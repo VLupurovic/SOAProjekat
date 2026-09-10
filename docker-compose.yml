@@ -1,0 +1,121 @@
+services:
+  stakeholders-db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: stakeholders
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - stakeholders-data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+
+  stakeholders-service:
+    build: ./stakeholders-service
+    depends_on:
+      - stakeholders-db
+    restart: on-failure
+    environment:
+      DB_HOST: stakeholders-db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: stakeholders
+      DB_SSLMODE: disable
+      JWT_SECRET: dev-secret-change-me
+      PORT: 8081
+    ports:
+      - "8081:8081"
+
+  blog-db:
+    image: mongo:7
+    volumes:
+      - blog-data:/data/db
+    ports:
+      - "27018:27017"
+
+  blog-service:
+    build: ./blog-service
+    depends_on:
+      - blog-db
+    restart: on-failure
+    environment:
+      MONGO_URI: mongodb://blog-db:27017
+      MONGO_DB_NAME: blogdb
+      JWT_SECRET: dev-secret-change-me
+      PORT: 8082
+      STAKEHOLDERS_SERVICE_URL: http://stakeholders-service:8081
+    ports:
+      - "8082:8082"
+
+  tour-db:
+    image: mongo:7
+    volumes:
+      - tour-data:/data/db
+    ports:
+      - "27019:27017"
+
+  tour-service:
+    build:
+      context: .
+      dockerfile: tour-service/Dockerfile
+    depends_on:
+      - tour-db
+    restart: on-failure
+    environment:
+      MONGO_URI: mongodb://tour-db:27017
+      MONGO_DB_NAME: tourdb
+      JWT_SECRET: dev-secret-change-me
+      PORT: 8083
+      PURCHASE_SERVICE_URL: http://purchase-service:8084
+      PURCHASE_SERVICE_GRPC_ADDR: purchase-service:50054
+    ports:
+      - "8083:8083"
+
+  purchase-db:
+    image: mongo:7
+    volumes:
+      - purchase-data:/data/db
+    ports:
+      - "27020:27017"
+
+  purchase-service:
+    build:
+      context: .
+      dockerfile: purchase-service/Dockerfile
+    depends_on:
+      - purchase-db
+    restart: on-failure
+    environment:
+      MONGO_URI: mongodb://purchase-db:27017
+      MONGO_DB_NAME: purchasedb
+      JWT_SECRET: dev-secret-change-me
+      PORT: 8084
+      GRPC_PORT: 50054
+      TOUR_SERVICE_URL: http://tour-service:8083
+    ports:
+      - "8084:8084"
+      - "50054:50054"
+
+  api-gateway:
+    build: ./api-gateway
+    depends_on:
+      - stakeholders-service
+      - blog-service
+      - tour-service
+      - purchase-service
+    restart: on-failure
+    environment:
+      STAKEHOLDERS_SERVICE_URL: http://stakeholders-service:8081
+      BLOG_SERVICE_URL: http://blog-service:8082
+      TOUR_SERVICE_URL: http://tour-service:8083
+      PURCHASE_SERVICE_URL: http://purchase-service:8084
+      PORT: 8080
+    ports:
+      - "8080:8080"
+
+volumes:
+  stakeholders-data:
+  blog-data:
+  tour-data:
+  purchase-data:

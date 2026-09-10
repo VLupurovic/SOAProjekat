@@ -26,8 +26,9 @@ func CheckPassword(hash, plain string) bool {
 }
 
 type Claims struct {
-	UserID int64       `json:"userId"`
-	Role   models.Role `json:"role"`
+	UserID   int64       `json:"userId"`
+	Username string      `json:"username"`
+	Role     models.Role `json:"role"`
 	jwt.RegisteredClaims
 }
 
@@ -39,10 +40,11 @@ func jwtSecret() []byte {
 	return []byte(secret)
 }
 
-func GenerateToken(userID int64, role models.Role) (string, error) {
+func GenerateToken(userID int64, username string, role models.Role) (string, error) {
 	claims := Claims{
-		UserID: userID,
-		Role:   role,
+		UserID:   userID,
+		Username: username,
+		Role:     role,
 		RegisteredClaims: jwt.RegisteredClaims{
 			ExpiresAt: jwt.NewNumericDate(time.Now().Add(24 * time.Hour)),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),

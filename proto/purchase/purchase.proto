@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package purchase;
+
+option go_package = "soaprojekat/proto/purchase";
+
+service PurchaseService {
+  rpc CheckPurchase (CheckPurchaseRequest) returns (CheckPurchaseResponse);
+}
+
+message CheckPurchaseRequest {
+  string tourId = 1;
+  int64 touristId = 2;
+}
+
+message CheckPurchaseResponse {
+  bool purchased = 1;
+}

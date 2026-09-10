@@ -1,0 +1,83 @@
+.hero {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background-image: url("https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+
+  color: var(--white);
+}
+
+.hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.75)
+    );
+}
+
+.hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 850px;
+
+  padding: 20px;
+}
+
+.hero-label {
+  margin-bottom: 25px;
+
+  color: var(--accent);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 4px;
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-size: clamp(48px, 7vw, 90px);
+
+  line-height: 0.95;
+}
+
+.hero-description {
+  max-width: 500px;
+
+  margin: 30px auto;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  line-height: 1.7;
+}
+
+.hero-button {
+  border: none;
+  border-radius: 30px;
+
+  padding: 15px 28px;
+
+  background: var(--accent);
+  color: #111;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}

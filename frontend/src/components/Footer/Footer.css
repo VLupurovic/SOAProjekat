@@ -1,0 +1,42 @@
+.footer {
+  padding: 80px 6% 30px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 25px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.footer p {
+  color: var(--gray);
+}
+
+.footer-links {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 30px;
+
+  margin: 30px 0;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  padding-top: 30px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: #666;
+
+  font-size: 13px;
+}

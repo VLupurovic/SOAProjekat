@@ -1,0 +1,183 @@
+.position-simulator-page {
+  min-height: 100vh;
+
+  padding: 120px 6% 80px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(231, 200, 106, 0.08),
+      transparent 35%
+    ),
+    var(--background);
+
+  color: var(--white);
+}
+
+.position-simulator-container {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 0 auto;
+}
+
+.position-simulator-status {
+  padding: 40px 0;
+
+  color: var(--gray);
+
+  font-size: 14px;
+  text-align: center;
+}
+
+
+.position-simulator-back {
+  padding: 0;
+  margin-bottom: 35px;
+
+  border: none;
+  background: none;
+
+  color: var(--gray);
+
+  font-family: inherit;
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.position-simulator-back:hover {
+  color: var(--white);
+  transform: translateX(-3px);
+}
+
+.position-simulator-header {
+  margin-bottom: 35px;
+}
+
+.position-simulator-header span {
+  color: var(--accent);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.position-simulator-header h1 {
+  margin: 10px 0;
+
+  font-size: 48px;
+  line-height: 1.05;
+
+  letter-spacing: -1px;
+}
+
+.position-simulator-header p {
+  max-width: 620px;
+
+  margin: 0;
+
+  color: var(--gray);
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.position-simulator-card {
+  padding: 30px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 22px;
+}
+
+
+
+.position-simulator-map {
+  overflow: hidden;
+
+  margin-bottom: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+
+  cursor: crosshair;
+}
+
+.position-simulator-map .leaflet-container {
+  border-radius: 14px;
+
+  font-family: inherit;
+}
+
+.position-simulator-footer {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.position-simulator-coords {
+  padding: 10px 14px;
+
+  border-radius: 10px;
+
+  background: rgba(231, 200, 106, 0.08);
+
+  color: var(--accent);
+
+  font-size: 13px;
+  font-family: monospace;
+}
+
+.position-simulator-coords-empty {
+  background: rgba(255, 255, 255, 0.04);
+
+  color: var(--gray);
+
+  font-family: inherit;
+}
+
+
+.position-simulator-message {
+  padding: 10px 14px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+}
+
+.position-simulator-error {
+  border: 1px solid rgba(255, 90, 90, 0.2);
+
+  background: rgba(255, 90, 90, 0.08);
+
+  color: #ff8c8c;
+}
+
+.position-simulator-success {
+  border: 1px solid rgba(120, 220, 150, 0.2);
+
+  background: rgba(120, 220, 150, 0.08);
+
+  color: #91dca5;
+}
+
+@media (max-width: 600px) {
+  .position-simulator-page {
+    padding: 100px 5% 50px;
+  }
+
+  .position-simulator-header h1 {
+    font-size: 38px;
+  }
+
+  .position-simulator-card {
+    padding: 20px 15px;
+  }
+}

@@ -21,6 +21,11 @@ func Connect() (*sql.DB, error) {
 		host, port, user, password, name, sslMode,
 	)
 
+	fmt.Println("DATABASE:", name)
+	fmt.Println("HOST:", host)
+	fmt.Println("PORT:", port)
+	fmt.Println("USER:", user)
+
 	conn, err := sql.Open("postgres", dsn)
 	if err != nil {
 		return nil, fmt.Errorf("opening db connection: %w", err)

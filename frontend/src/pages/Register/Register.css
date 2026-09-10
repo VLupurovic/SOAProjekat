@@ -1,0 +1,239 @@
+.register-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 60px 20px;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #162523 0%,
+      var(--background) 55%
+    );
+}
+
+.register-container {
+  width: 100%;
+  max-width: 520px;
+
+  padding: 45px;
+
+  background: rgba(16, 25, 24, 0.9);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.register-logo {
+  display: block;
+
+  margin-bottom: 45px;
+
+  color: var(--white);
+
+  font-size: 20px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.register-heading p {
+  margin: 0 0 12px;
+
+  color: var(--accent);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+}
+
+.register-heading h1 {
+  margin: 0 0 12px;
+
+  font-size: 38px;
+
+  line-height: 1.1;
+}
+
+.register-heading span {
+  color: var(--gray);
+
+  font-size: 14px;
+}
+
+.register-form {
+  margin-top: 35px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 13px;
+}
+
+.form-group input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 8px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: var(--white);
+
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.form-group input::placeholder {
+  color: #687270;
+}
+
+.form-group input:focus {
+  border-color: var(--accent);
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.role-selection {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.role-option {
+  padding: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  color: var(--white);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.role-option strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 15px;
+}
+
+.role-option span {
+  color: var(--gray);
+
+  font-size: 11px;
+}
+
+.role-option:hover {
+  border-color: rgba(231, 200, 106, 0.5);
+}
+
+.role-option.active {
+  border-color: var(--accent);
+
+  background: rgba(231, 200, 106, 0.08);
+}
+
+.role-option.active strong {
+  color: var(--accent);
+}
+
+.register-error {
+  margin-bottom: 18px;
+
+  padding: 12px 14px;
+
+  border: 1px solid rgba(255, 80, 80, 0.3);
+
+  border-radius: 8px;
+
+  background: rgba(255, 80, 80, 0.08);
+
+  color: #ff9b9b;
+
+  font-size: 13px;
+}
+
+.register-submit {
+  width: 100%;
+
+  margin-top: 10px;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background: var(--accent);
+
+  color: #111;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.register-submit:hover {
+  transform: translateY(-2px);
+}
+
+.register-submit:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+.register-login {
+  margin-top: 25px;
+
+  color: var(--gray);
+
+  text-align: center;
+
+  font-size: 13px;
+}
+
+.register-login a {
+  color: var(--accent);
+
+  font-weight: 600;
+}

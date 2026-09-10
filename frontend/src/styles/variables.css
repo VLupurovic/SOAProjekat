@@ -1,0 +1,11 @@
+:root {
+  --background: #07100f;
+  --background-light: #101918;
+
+  --white: #ffffff;
+  --gray: #9da7a5;
+
+  --accent: #e7c86a;
+
+  --max-width: 1200px;
+}
